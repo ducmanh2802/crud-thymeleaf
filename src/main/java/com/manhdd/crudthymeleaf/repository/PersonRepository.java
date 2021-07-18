@@ -41,7 +41,7 @@ public class PersonRepository extends Dao {
     }
 
     @Override
-    public void add( Person person) {
+    public void add(Person person) {
         long id;
         if (persons.isEmpty()) {
             id = 1;
@@ -54,12 +54,7 @@ public class PersonRepository extends Dao {
     }
 
     @Override
-    public void add(final Object t) {
-
-    }
-
-    @Override
-    public void update(final Object t) {
+    public void update(Person person) {
 
     }
 

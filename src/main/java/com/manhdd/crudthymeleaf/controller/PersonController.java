@@ -34,6 +34,6 @@ public class PersonController {
         if (book.isPresent()) {
             model.addAttribute("book", book.get());
         }
-        return "book";
+        return "index";
     }
 }
