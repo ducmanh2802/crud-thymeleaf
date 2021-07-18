@@ -44,6 +44,7 @@
             <th scope="col">Full name</th>
             <th scope="col">Job</th>
             <th scope="col">Gender</th>
+            <th scope="col">Icon</th>
             <th scope="col">Birthday</th>
             <th scope="col">Action</th>
           </tr>
@@ -60,11 +61,18 @@
               <a><i class="fas fa-trash-alt"></i></a>
             </td>
           </tr> -->
-          <tr th:each="person : ${persons}">
+          <tr
+            th:each="person : ${persons}"
+            th:classappend="${person.gender=='Male'} ? table-primary : table-warning"
+          >
             <th scope="row" th:text="${person.id}">Id</th>
             <td th:text="${person.name}">Full name</td>
             <td th:text="${person.job}">Job</td>
             <td th:text="${person.gender}">Gender</td>
+            <td>
+              <span th:if="${person.gender == 'Female'}">🙎🏻‍♀️</span>
+              <span th:unless="${person.gender == 'Female'}">🙎🏻‍♂️</span>
+            </td>
             <td th:text="${person.birthday}">Birthday</td>
             <td>
               <a><i class="fas fa-edit"></i></a>
