@@ -27,6 +27,6 @@ public class Person {
     private String gender;
 
     // @Column(name = "birthday" )
-    private String birthDay;
+    private String birthday;
 
 }

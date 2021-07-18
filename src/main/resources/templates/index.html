@@ -67,12 +67,8 @@
             <td th:text="${person.gender}">Gender</td>
             <td th:text="${person.birthday}">Birthday</td>
             <td>
-              <a th:href="@{/edit/{id}(id=${user.id})}"
-                ><i class="fas fa-edit"></i
-              ></a>
-              <a th:href="@{/delete/{id}(id=${user.id})}"
-                ><i class="fas fa-trash-alt"></i
-              ></a>
+              <a><i class="fas fa-edit"></i></a>
+              <a><i class="fas fa-trash-alt"></i></a>
             </td>
           </tr>
         </tbody>
