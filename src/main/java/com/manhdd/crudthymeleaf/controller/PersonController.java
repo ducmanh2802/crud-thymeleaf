@@ -1,45 +1,32 @@
 package com.manhdd.crudthymeleaf.controller;
 
 import com.manhdd.crudthymeleaf.model.Person;
-import com.manhdd.crudthymeleaf.service.impl.PersonServiceImpl;
+import com.manhdd.crudthymeleaf.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/person")
+@Controller
+@RequestMapping("/")
 public class PersonController {
 
     @Autowired
-    private PersonServiceImpl personService;
+    private PersonRepository personRepo;
 
     @GetMapping("/")
-    public String hello(){
-        return"hello";
+    public String showIndex(Model model) {
+        model.addAttribute("persons", personRepo.getAllPerson());
+        return "index";
     }
 
-    //Api add person
-    @PostMapping ("/add")
-    public Person addPerson(@RequestBody Person person){
-        return  personService.addPerson(person);
+    @GetMapping("/add")
+    public String showAddPerson() {
+
+        return "addperson";
     }
 
-    //Api update person
-    @PutMapping("/update")
-    public Person updatePerson(@RequestParam("id") long id, @RequestBody Person person ){
-        return personService.updatePerson(id, person);
-    }
-
-    //Api delete person
-    @DeleteMapping("/delete/{id}")
-    public boolean deletePerson(@PathVariable("id") long id){
-        return personService.deletePerson(id);
-    }
-
-    //Api get all person
-    @GetMapping("/list")
-    public List<Person> getAllPerson(){
-        return personService.getAllPerson();
-    }
 }

@@ -11,22 +11,22 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "")
+// @Table(name = "")
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "name")
+    // @Column(name = "name")
     private String name;
 
-    @Column(name = "job")
+    // @Column(name = "job")
     private String job;
 
-    @Column(name = "gender")
+    // @Column(name = "gender")
     private String gender;
 
-    @Column(name = "birthday" )
+    // @Column(name = "birthday" )
     private String birthDay;
 
 }

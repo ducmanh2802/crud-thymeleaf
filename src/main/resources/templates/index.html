@@ -19,15 +19,23 @@
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <style>
+      button:focus {
+        outline: 0;
+      }
+
       .no_border {
         border: none;
       }
     </style>
-    <title>Crud thymeleaf</title>
+    <title>Crud Thymeleaf</title>
   </head>
   <body>
     <div class="container">
-      <a href="addperson.html"> Add Person </a>
+      <h1>Person Management</h1>
+      <input type="text" />
+      <button class="no_border">Search</button>
+      <a th:href="@{/add}"> Add Person </a><br />
+      <br />
       <table class="table">
         <thead>
           <tr>
@@ -35,43 +43,17 @@
             <th scope="col">Full name</th>
             <th scope="col">Job</th>
             <th scope="col">Gender</th>
-            <th scope="col">Birth day</th>
+            <th scope="col">Birthday</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Duc Manh</td>
-            <td>Developer</td>
-            <td>Male</td>
-            <td>02/28/1992</td>
-            <td>
-              <button class="no_border"><i class="fas fa-edit"></i></button>
-              <button class="no_border">
-                <i class="fas fa-trash-alt"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>David</td>
-            <td>Banker</td>
-            <td>Male</td>
-            <td>06/07/1989</td>
-            <td>
-              <button class="no_border"><i class="fas fa-edit"></i></button>
-              <button class="no_border">
-                <i class="fas fa-trash-alt"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Nancy</td>
-            <td>Developer</td>
-            <td>Female</td>
-            <td>Unknown</td>
+          <tr th:each="person : ${persons}">
+            <th scope="row" th:text="${person.id}">Id</th>
+            <td th:text="${person.name}">Full name</td>
+            <td th:text="${person.job}">Job</td>
+            <td th:text="${person.gender}">Gender</td>
+            <td th:text="${person.birthday}">Birthday</td>
             <td>
               <button class="no_border"><i class="fas fa-edit"></i></button>
               <button class="no_border">
