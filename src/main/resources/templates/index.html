@@ -50,17 +50,6 @@
           </tr>
         </thead>
         <tbody>
-          <!-- <tr>
-            <th scope="row">1</th>
-            <td>Duc Manh</td>
-            <td>dev</td>
-            <td>male</td>
-            <td>1992</td>
-            <td>
-              <a><i class="fas fa-edit"></i></a>
-              <a><i class="fas fa-trash-alt"></i></a>
-            </td>
-          </tr> -->
           <tr
             th:each="person : ${persons}"
             th:classappend="${person.gender=='Male'} ? table-primary : table-warning"
@@ -75,8 +64,8 @@
             </td>
             <td th:text="${person.birthday}">Birthday</td>
             <td>
-              <a><i class="fas fa-edit"></i></a>
-              <a><i class="fas fa-trash-alt"></i></a>
+              <a th:href="@{/add}"><i class="fas fa-edit"></i></a>
+              <a th:href="@{/delete}"><i class="fas fa-trash-alt"></i></a>
             </td>
           </tr>
         </tbody>
